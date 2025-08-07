@@ -1,0 +1,38 @@
+{
+  "employee": [
+    {
+      "id": "20b5",
+      "name": "sathwik",
+      "email": "sathwikakuthota10@gmail.com",
+      "phone": "42343432"
+    },
+    {
+      "id": "682d",
+      "name": "pandu",
+      "email": "pandukumar.gujja204@gmail.com",
+      "phone": "3243432"
+    },
+    {
+      "id": "eaba",
+      "name": "sathwik",
+      "email": "chodhans@gmail.com",
+      "phone": "08886444336"
+    },
+    {
+      "id": "00da",
+      "name": "sathwik",
+      "email": "chodhans@gmail.com",
+      "phone": "08886444336"
+    },
+    {
+      "id": "4c24"
+    },
+    {
+      "id": "a7f5"
+    },
+    {
+      "id": "858b"
+    }
+  ],
+  "cars": []
+}
