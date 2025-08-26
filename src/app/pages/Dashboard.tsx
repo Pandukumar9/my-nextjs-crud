@@ -20,6 +20,7 @@ useEffect(() => {
   }, [isOpen]);
 
   return (
+    <>
     <div className="p-6">
       <button onClick={() => setIsOpen(true)} className="px-4 py-2 bg-blue-600 text-white rounded-lg">
         Open Modal (With Params)
@@ -48,7 +49,7 @@ useEffect(() => {
       />
 
 
-      {/* <ReuseModal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+      {/* <ReuseModal isOpen={isOpen} onClose={() => setIsOpen(false)}
         <h2 className="text-2xl font-bold mb-4">🎉 Custom Modal</h2>
         <p className="mb-4">
           Here you can place <b>any React component</b> you like.
@@ -56,8 +57,10 @@ useEffect(() => {
         <button onClick={() => setIsOpen(false)} className="px-4 py-2 bg-purple-600 text-white rounded-lg">
           Close
         </button>
-      </ReuseModal> */}
+      /> */}
 
-    </div>
+    </div>    
+    </>
+
   );
 }
