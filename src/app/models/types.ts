@@ -13,3 +13,10 @@ export interface ModalProps {
   footer?: ReactNode;
   children?: ReactNode;
 }
+
+export interface Book {
+  bookName: string;
+  bookDescription: string;
+  bookAuthor: string;
+  bookCost: string;
+}
