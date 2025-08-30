@@ -10,6 +10,7 @@ export default function BookList({ books }: { books: Book[] }) {
   const [booksData, setBooksData] = useState<Book[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
+  const [loading, setLoading] = useState(true);
 
   // Fetch books from API
   useEffect(() => {
@@ -18,10 +19,13 @@ export default function BookList({ books }: { books: Book[] }) {
 
   const fetchBooks = async () => {
     try {
+      setLoading(true);
       const apiBooks = await getBooks();
       setBooksData(apiBooks);
     } catch (error) {
       console.error("Error fetching books:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -42,7 +46,6 @@ export default function BookList({ books }: { books: Book[] }) {
   const handleEditBook = (book: any) => {
     setSelectedBook(book); // pre-fill book form
     setIsOpen(true); // open modal
-    // UpdateBook(book.id, book);
   };
 
   const handleViewBook = (book: Book) => {
@@ -64,7 +67,23 @@ export default function BookList({ books }: { books: Book[] }) {
         📚 Book Collection
       </h2>
 
-      {booksData.length === 0 ? (
+      {loading ? (
+        // Skeletons
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {Array.from({ length: 6 }).map((_, idx) => (
+            <div
+              key={idx}
+              className="p-5 bg-white rounded-xl shadow-md border border-gray-200 animate-pulse"
+            >
+              <div className="h-5 w-3/4 bg-gray-300 rounded mb-3"></div>
+              <div className="h-4 w-1/2 bg-gray-300 rounded mb-2"></div>
+              <div className="h-3 w-full bg-gray-300 rounded mb-2"></div>
+              <div className="h-3 w-5/6 bg-gray-300 rounded mb-4"></div>
+              <div className="h-5 w-1/3 bg-gray-300 rounded"></div>
+            </div>
+          ))}
+        </div>
+      ) : booksData.length === 0 ? (
         <p className="text-gray-500 text-center">
           No books available. Please add one!
         </p>
@@ -75,7 +94,6 @@ export default function BookList({ books }: { books: Book[] }) {
               key={book.id}
               className="p-5 bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow border border-gray-200"
             >
-              {/* Book Info */}
               <h3 className="text-lg font-semibold text-blue-700">
                 {book.bookName}
               </h3>
@@ -89,7 +107,6 @@ export default function BookList({ books }: { books: Book[] }) {
                 ₹{book.bookCost}
               </p>
 
-              {/* Actions */}
               <div className="flex justify-between mt-4 gap-2">
                 <button
                   onClick={() => handleViewBook(book)}

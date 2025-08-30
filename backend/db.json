@@ -25,12 +25,6 @@
       "phone": "4335345435"
     },
     {
-      "id": "3519",
-      "name": "rajesh",
-      "email": "rajesh@gmail.com",
-      "phone": "645645745"
-    },
-    {
       "id": "ca8c",
       "name": "homesh",
       "email": "homesh@gmail.com",
@@ -41,10 +35,10 @@
   "books": [
     {
       "id": "b08b",
-      "bookName": "tesla test",
-      "bookDescription": "good test",
-      "bookAuthor": "pandu test",
-      "bookCost": "2233"
+      "bookName": "tesla",
+      "bookDescription": "good",
+      "bookAuthor": "pandu",
+      "bookCost": "111"
     },
     {
       "id": "e221",
